@@ -1,0 +1,11 @@
+.crop-panel {
+  width: 100%;
+}
+
+.ReactCrop {
+  max-width: 100%;
+}
+
+.ReactCrop__crop-selection {
+  border: 2px solid var(--primary-color) !important;
+}
