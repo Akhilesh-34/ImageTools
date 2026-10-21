@@ -22,29 +22,24 @@ function AppContent() {
         
         {/* Left Side: Logo */}
         <div className="logo header-left">
-
-            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <h1>PixelTools</h1>
-              <span className="subtitle">Image Tools</span>
-            </Link>
-          
+          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <h1>PixelTools</h1>
+            <span className="subtitle">Image Tools</span>
+          </Link>
         </div>
         
         {/* Center: Navigation Links */}
         <div className="header-center">
           {isHome ? (
-            <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
+            <nav style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
               <Link to="/about">About</Link>
             </nav>
           ) : (
-            <nav style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center' }}>
-
-            
-            <Link style={{ fontSize: '0.85rem' }} to="/compress">Compress</Link>
-            <Link style={{ fontSize: '0.85rem' }} to="/resize">Resize</Link>
-            <Link style={{ fontSize: '0.85rem' }} to="/crop">Crop</Link>
-            <Link style={{ fontSize: '0.85rem' }} to="/format">Convert</Link>
-          
+            <nav style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
+              <Link style={{ fontSize: '0.85rem' }} to="/compress">Compress</Link>
+              <Link style={{ fontSize: '0.85rem' }} to="/resize">Resize</Link>
+              <Link style={{ fontSize: '0.85rem' }} to="/crop">Crop</Link>
+              <Link style={{ fontSize: '0.85rem' }} to="/format">Convert</Link>
             </nav>
           )}
         </div>
@@ -59,7 +54,8 @@ function AppContent() {
             >
               <button 
                 className="nav-dropdown-btn"
-                style={{ fontSize: '1rem', padding: '8px 14px' }}
+                style={{ fontSize: '0.95rem', padding: '8px 14px' }}
+                onClick={() => setDropdownOpen(!dropdownOpen)}
               >
                 Other Tools <ChevronDown size={14} style={{ transform: dropdownOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.2s' }} />
               </button>
@@ -69,7 +65,7 @@ function AppContent() {
                   position: 'absolute', 
                   top: '100%', 
                   right: 0, 
-                  marginTop: '0', 
+                  marginTop: '0.25rem', 
                   background: 'var(--surface, var(--surface-color))', 
                   border: '1px solid var(--border, var(--border-color))', 
                   borderRadius: '16px', 
@@ -88,7 +84,7 @@ function AppContent() {
               )}
             </div>
           ) : (
-            <Link to="/" className="primary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', padding: '0.4rem 1rem', fontSize: '0.85rem', boxShadow: 'none' }}>
+            <Link to="/" className="primary-btn" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', textDecoration: 'none', padding: '0.45rem 0.9rem', fontSize: '0.85rem', boxShadow: 'none' }}>
               <ArrowLeft size={16} /> Back
             </Link>
           )}
@@ -96,28 +92,28 @@ function AppContent() {
       </header>
 
       <main className="app-main">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/compress" element={<ImageCompressor />} />
-            <Route path="/resize" element={<ImageResizer />} />
-            <Route path="/crop" element={<ImageCropper />} />
-            <Route path="/format" element={<FormatConverter />} />
-            <Route path="*" element={
-              <div style={{ textAlign: 'center', padding: '100px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <img src="/Wolf-404.svg" alt="404 Error" style={{ width: '250px', maxWidth: '100%', marginBottom: '2rem' }} />
-                <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--text, var(--text-color, #333))' }}>Oops! Page Not Found</h2>
-                <p style={{ marginBottom: '2rem', color: 'var(--text-light, var(--text-secondary, #666))' }}>The page you are looking for doesn't exist or has been moved.</p>
-                <Link to="/" className="primary-btn" style={{ padding: '0.8rem 1.5rem', textDecoration: 'none', borderRadius: '8px', fontWeight: 'bold' }}>Return Home</Link>
-              </div>
-            } />
-          </Routes>
-        </main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/compress" element={<ImageCompressor />} />
+          <Route path="/resize" element={<ImageResizer />} />
+          <Route path="/crop" element={<ImageCropper />} />
+          <Route path="/format" element={<FormatConverter />} />
+          <Route path="*" element={
+            <div style={{ textAlign: 'center', padding: '100px 20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <img src="/Wolf-404.svg" alt="404 Error" style={{ width: '250px', maxWidth: '100%', marginBottom: '2rem' }} />
+              <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--text, var(--text-color, #333))' }}>Oops! Page Not Found</h2>
+              <p style={{ marginBottom: '2rem', color: 'var(--text-light, var(--text-secondary, #666))' }}>The page you are looking for doesn't exist or has been moved.</p>
+              <Link to="/" className="primary-btn" style={{ padding: '0.8rem 1.5rem', textDecoration: 'none', borderRadius: '8px', fontWeight: 'bold' }}>Return Home</Link>
+            </div>
+          } />
+        </Routes>
+      </main>
 
-        <footer className="app-footer">
-          <p>&copy; 2026 PixelTools. Processed locally, never uploaded.</p>
-        </footer>
-      </div>
+      <footer className="app-footer">
+        <p>&copy; 2026 PixelTools. Processed locally, never uploaded.</p>
+      </footer>
+    </div>
   );
 }
 
